@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
+    android:layoutDirection="ltr"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/btnMenu"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_menu"
+        android:contentDescription="Menu"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"/>
+
+    <FrameLayout
+        android:id="@+id/main_FRAME_mini_scores"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:elevation="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMenu"
+        />
+
+
+
+    <LinearLayout
+        android:id="@+id/livesContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/heart1"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:contentDescription="@string/heart"
+            android:src="@drawable/heart" />
+
+        <ImageView
+            android:id="@+id/heart2"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="4dp"
+            android:contentDescription="@string/heart"
+            android:src="@drawable/heart" />
+
+        <ImageView
+            android:id="@+id/heart3"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="4dp"
+            android:contentDescription="@string/heart"
+            android:src="@drawable/heart" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCORE 0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#FFD966"
+        android:fontFamily="sans-serif-condensed"
+        android:letterSpacing="0.08"
+        android:background="@drawable/bg_score"
+        android:gravity="center"
+        android:elevation="6dp"
+
+        android:layout_marginBottom="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnLeft"
+        app:layout_constraintEnd_toStartOf="@id/btnRight"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+
+
+
+
+
+    <ImageButton
+        android:id="@+id/btnLeft"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="6dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/left"
+        android:scaleType="fitCenter"
+        android:src="@drawable/leftarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnRight"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="6dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/right"
+        android:scaleType="fitCenter"
+        android:src="@drawable/rightarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Game board:
+         A fixed 7x3 matrix of Views (mat_row_col).
+
+        -->
+    <LinearLayout
+        android:id="@+id/lanes_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/livesContainer"
+        app:layout_constraintBottom_toTopOf="@id/btnLeft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Column 0 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <View android:id="@+id/mat_0_0" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_1_0" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_2_0" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_3_0" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_4_0" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_5_0" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_6_0" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+        </LinearLayout>
+
+
+        <!-- Column 1 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <View android:id="@+id/mat_0_1" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_1_1" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_2_1" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_3_1" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_4_1" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_5_1" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_6_1" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+        </LinearLayout>
+
+        <!-- Column 2 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <View android:id="@+id/mat_0_2" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_1_2" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_2_2" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_3_2" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_4_2" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_5_2" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_6_2" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+        </LinearLayout>
+
+        <!-- Column 3 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <View android:id="@+id/mat_0_3" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_1_3" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_2_3" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_3_3" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_4_3" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_5_3" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_6_3" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+        </LinearLayout>
+
+        <!-- Column 4 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <View android:id="@+id/mat_0_4" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_1_4" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_2_4" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_3_4" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_4_4" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_5_4" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+            <View android:id="@+id/mat_6_4" android:layout_width="80dp" android:layout_height="88dp" android:layout_gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- Not used for gameplay drawing: the player is rendered inside the grid cells in Kotlin.
+         This view is kept only as a legacy placeholder and is hidden in code. -->
+    <ImageView
+        android:id="@+id/carView"
+        android:layout_width="110dp"
+        android:layout_height="210dp"
+        android:contentDescription="@string/car"
+        android:src="@drawable/car"
+        app:layout_constraintBottom_toTopOf="@id/btnLeft"
+        app:layout_constraintStart_toStartOf="@id/lanes_container"
+        app:layout_constraintEnd_toEndOf="@id/lanes_container"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <FrameLayout
+        android:id="@+id/main_FRAME_game_over"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

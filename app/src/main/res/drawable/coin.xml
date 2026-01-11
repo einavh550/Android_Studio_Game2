@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Outer dark rim -->
+    <path
+        android:fillColor="#C9971A"
+        android:pathData="
+            M50,4
+            A46,46 0 1,1 49.9,4
+            Z" />
+
+    <!-- Main gold body -->
+    <path
+        android:fillColor="#F2C94C"
+        android:pathData="
+            M50,10
+            A40,40 0 1,1 49.9,10
+            Z" />
+
+    <!-- Inner ring -->
+    <path
+        android:fillColor="#FFD966"
+        android:pathData="
+            M50,18
+            A32,32 0 1,1 49.9,18
+            Z" />
+
+    <!-- Center core -->
+    <path
+        android:fillColor="#FFE9A8"
+        android:pathData="
+            M50,30
+            A20,20 0 1,1 49.9,30
+            Z" />
+
+
+
+    <!-- Small sparkle highlight -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.35"
+        android:pathData="
+            M65,22
+            A4,4 0 1,1 64.9,22
+            Z" />
+
+</vector>
