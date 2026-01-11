@@ -1,4 +1,4 @@
-package com.example.android_studio_game
+package com.example.android_studio_game.ui
 
 import android.os.Bundle
 import android.widget.FrameLayout
@@ -6,11 +6,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.android_studio_game.data.HighScoreStorage
+import com.example.android_studio_game.R
+import com.example.android_studio_game.utilities.SignalManager
 import com.example.android_studio_game.interfaces.Callback_HighScoreClicked
-import com.example.android_studio_game.ui.HighScoreFragment
-import com.example.android_studio_game.ui.MapFragment
+import com.example.android_studio_game.utilities.MapFragment
 import com.google.android.material.button.MaterialButton
-
 
 class LeaderboardActivity : AppCompatActivity() {
 

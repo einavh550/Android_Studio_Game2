@@ -1,6 +1,7 @@
-package com.example.android_studio_game
+package com.example.android_studio_game.utilities
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Looper
@@ -40,7 +41,7 @@ object LocationHelper {
         return fine || coarse
     }
 
-
+    @SuppressLint("MissingPermission")
     fun getLastLocation(onResult: (Double?, Double?) -> Unit) {
         ensureInit()
 
@@ -49,6 +50,7 @@ object LocationHelper {
             return
         }
 
+        // Safe to call - permission checked above
         fused.lastLocation
             .addOnSuccessListener { loc ->
                 if (loc != null) {
@@ -62,11 +64,10 @@ object LocationHelper {
             }
     }
 
-    fun getBestEffortLocation(onResult: (Double?, Double?) -> Unit) {
-        getLastLocation(onResult)
-    }
 
+    @SuppressLint("MissingPermission")
     private fun requestSingleUpdate(onResult: (Double?, Double?) -> Unit) {
+        // Permission already verified in getLastLocation()
         val request = LocationRequest.Builder(
             Priority.PRIORITY_BALANCED_POWER_ACCURACY,
             0L

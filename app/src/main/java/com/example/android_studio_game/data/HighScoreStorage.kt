@@ -1,4 +1,4 @@
-package com.example.android_studio_game
+package com.example.android_studio_game.data
 
 import android.content.Context
 import android.content.SharedPreferences

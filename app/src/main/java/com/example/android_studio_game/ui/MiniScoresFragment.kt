@@ -1,4 +1,4 @@
-package com.example.android_studio_game
+package com.example.android_studio_game.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import com.example.android_studio_game.R
 import com.google.android.material.textview.MaterialTextView
 
 class MiniScoresFragment : Fragment() {
@@ -20,7 +21,7 @@ class MiniScoresFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_mini_scores, container, false)
+        return inflater.inflate(R.layout.fragment_ingame_scores, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,12 +53,4 @@ class MiniScoresFragment : Fragment() {
         }
     }
 
-    fun setScores(scores: List<Int>) {
-        val top = scores.take(10)
-
-        for (i in 0 until 10) {
-            val value = top.getOrNull(i)
-            scoreViews[i].text = value?.toString() ?: "—"
-        }
-    }
 }

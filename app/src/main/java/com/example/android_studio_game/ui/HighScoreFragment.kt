@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.android_studio_game.HighScoreStorage
+import com.example.android_studio_game.data.HighScoreStorage
 import com.example.android_studio_game.R
-import com.example.android_studio_game.SignalManager
+import com.example.android_studio_game.utilities.SignalManager
 import com.example.android_studio_game.interfaces.Callback_HighScoreClicked
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
@@ -34,7 +34,7 @@ class HighScoreFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v: View = inflater.inflate(R.layout.fragment_high_score, container, false)
+        val v: View = inflater.inflate(R.layout.fragment_leaderboard, container, false)
         findViews(v)
         initViews()
         return v

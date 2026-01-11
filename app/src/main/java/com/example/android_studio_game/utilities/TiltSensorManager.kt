@@ -1,12 +1,12 @@
-package com.example.android_studio_game
+package com.example.android_studio_game.utilities
 
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import com.example.android_studio_game.interfaces.TiltCallback
 import kotlin.math.abs
-
 
 class TiltSensorManager(
     context: Context,
@@ -35,7 +35,7 @@ class TiltSensorManager(
         sensorEventListener = object : SensorEventListener {
 
             override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-                // No need
+
             }
 
             override fun onSensorChanged(event: SensorEvent) {
@@ -47,18 +47,16 @@ class TiltSensorManager(
     }
 
     private fun calculateTilt(x: Float, y: Float) {
-        if (System.currentTimeMillis() - timestamp >= 500) {
-            timestamp = System.currentTimeMillis()
+        if (System.currentTimeMillis() - timestamp < 150) return
+        timestamp = System.currentTimeMillis()
 
-            if (abs(x) >= 3.0f) {
-                tiltCallback.tiltX(x)
-            }
-
-            if (abs(y) >= 3.0f) {
-                tiltCallback.tiltY(y)
-            }
+        if (abs(x) >= 3.0f) {
+            tiltCallback.tiltX(x)
         }
+
+        tiltCallback.tiltY(y)
     }
+
 
     fun start() {
         sensor?.let {

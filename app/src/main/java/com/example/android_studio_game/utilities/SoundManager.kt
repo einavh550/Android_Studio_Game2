@@ -1,4 +1,4 @@
-package com.example.android_studio_game
+package com.example.android_studio_game.utilities
 
 import android.content.Context
 import android.media.AudioAttributes

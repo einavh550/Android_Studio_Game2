@@ -1,4 +1,4 @@
-package com.example.android_studio_game
+package com.example.android_studio_game.interfaces
 
 interface TiltCallback {
     fun tiltX(x: Float)

@@ -1,9 +1,11 @@
-package com.example.android_studio_game
+package com.example.android_studio_game.game
 
+import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.PopupMenu
-import android.view.MenuItem
-
+import com.example.android_studio_game.R
+import com.example.android_studio_game.utilities.TiltSensorManager
+import com.example.android_studio_game.ui.MainActivity
 
 class GameMenuController(
     private val activity: MainActivity,
@@ -64,7 +66,7 @@ class GameMenuController(
         popup.show()
     }
 
-    private fun toggleFastMode(item: android.view.MenuItem) {
+    private fun toggleFastMode(item: MenuItem) {
         val newState = !gameManager.isFastMode()
         gameManager.setFastMode(newState)
         item.isChecked = newState
@@ -83,6 +85,5 @@ class GameMenuController(
         val isSensorMode = tiltSensorManager.isEnabled()
         item.title = if (isSensorMode) "Control: Sensors" else "Control: Buttons"
     }
-
 
 }

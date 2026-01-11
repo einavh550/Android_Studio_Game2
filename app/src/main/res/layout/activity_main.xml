@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
     android:layoutDirection="ltr"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <ImageButton
         android:id="@+id/btnMenu"

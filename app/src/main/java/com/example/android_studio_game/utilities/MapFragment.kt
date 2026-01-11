@@ -1,4 +1,4 @@
-package com.example.android_studio_game.ui
+package com.example.android_studio_game.utilities
 
 import android.os.Bundle
 import android.view.LayoutInflater
